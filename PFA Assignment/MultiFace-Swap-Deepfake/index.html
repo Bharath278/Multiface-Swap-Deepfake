@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Face Swap</title>
+</head>
+<body>
+    <h1>Upload Image or Video for Face Swap</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="file">Upload Image or Video:</label>
+            <input type="file" name="file" id="file" required>
+        </div>
+        <div>
+            <label for="new_face">Upload New Face Image:</label>
+            <input type="file" name="new_face" id="new_face" required>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
